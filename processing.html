@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Processing Boost</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .loader {
+      width: 100px;
+      height: 100px;
+      border: 8px solid #00f2fe;
+      border-top: 8px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .pulse-dot {
+      animation: pulse 1.4s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-4">
+
+  <div class="text-center space-y-10 max-w-2xl">
+    <!-- Title -->
+    <div>
+      <h1 class="text-5xl font-extrabold tracking-tight text-white mb-2">Hang Tight 🚀</h1>
+      <p class="text-lg text-blue-100">We’re processing your boost request.<br>Your followers will arrive within <span class="font-semibold text-white">24 hours</span> — often much sooner!</p>
+    </div>
+
+    <!-- Loader -->
+    <div class="relative">
+      <div class="loader"></div>
+      <p class="mt-4 text-sm text-blue-200">Initializing secure transfer...</p>
+    </div>
+
+    <!-- Pulsing Dots -->
+    <div class="flex justify-center space-x-3 mt-6">
+      <span class="pulse-dot w-4 h-4 bg-blue-400 rounded-full"></span>
+      <span class="pulse-dot w-4 h-4 bg-blue-400 rounded-full delay-150"></span>
+      <span class="pulse-dot w-4 h-4 bg-blue-400 rounded-full delay-300"></span>
+    </div>
+
+    <!-- What's Next Box -->
+    <div class="bg-white text-gray-800 p-6 rounded-2xl shadow-xl text-left space-y-4">
+      <h2 class="text-xl font-bold text-center">What’s Next?</h2>
+      <ul class="list-disc list-inside text-sm leading-relaxed">
+        <li>You’ll receive a confirmation once boosting is complete.</li>
+        <li>Come back tomorrow for another <strong>free boost</strong>.</li>
+        <li>Follow us on Instagram to unlock <span class="text-blue-600 font-medium">premium rewards</span>.</li>
+      </ul>
+    </div>
+
+    <!-- Button -->
+    <a href="index.html" class="inline-block mt-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold text-lg px-6 py-3 rounded-full shadow-lg hover:from-blue-600 hover:to-cyan-600 transition">
+      ⬅️ Back to Home
+    </a>
+
+    <!-- Footer Text -->
+    <p class="text-xs text-blue-200 mt-6">This boost is a free one-time gift. You can return tomorrow for more.</p>
+  </div>
+
+</body>
+</html>
