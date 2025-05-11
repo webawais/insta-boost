@@ -3,166 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boost Your Instagram Growth | InstaBoost Pro</title>
+  <title>Boost Your Instagram | InstaBoost App</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    body { background-color: #f7fafc; font-family: 'Inter', sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
-    .fade-in { animation: fadeIn 1.2s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .gradient-cta { background: linear-gradient(to right, #3b82f6, #2563eb); }
-    .gradient-cta:hover { background: linear-gradient(to right, #2563eb, #1d4ed8); }
-    .floating { animation: float 3s ease-in-out infinite; }
-    @keyframes float { 0% { transform: translatey(0px); } 50% { transform: translatey(-10px); } 100% { transform: translatey(0px); } }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .gradient-bg {
+      background: linear-gradient(to right, #6366f1, #3b82f6);
+    }
+    .card:hover {
+      transform: scale(1.03);
+      transition: 0.3s;
+    }
   </style>
 </head>
 <body class="text-gray-800">
 
   <!-- Header -->
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">📈 InstaBoost Pro</h1>
-      <a href="login.html" class="gradient-cta text-white px-5 py-2 rounded-full font-medium transition">Get Started</a>
-    </div>
+  <header class="bg-white py-4 px-6 shadow flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-xl font-bold text-indigo-600">📈 InstaBoost</h1>
+    <a href="login.html" class="text-indigo-600 font-semibold">Login</a>
   </header>
 
   <!-- Hero Section -->
-  <section class="relative bg-cover bg-center text-white py-32 fade-in" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80');">
-    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
-    <div class="relative max-w-4xl mx-auto text-center px-4">
-      <h2 class="text-5xl font-extrabold mb-4 leading-tight">Grow Your Instagram Audience the Smart Way</h2>
-      <p class="text-lg mb-6">No bots. No fluff. Just real engagement for creators, brands, and influencers.</p>
-      <a href="login.html" class="gradient-cta px-8 py-3 rounded-full text-lg font-semibold inline-block transition">🚀 Boost My Profile</a>
-    </div>
+  <section class="gradient-bg text-white py-20 px-6 text-center rounded-b-3xl shadow-lg">
+    <h2 class="text-4xl font-bold mb-4 leading-snug">Boost Your Instagram Profile</h2>
+    <p class="mb-6 text-lg">Increase real followers, likes, views, shares, and comments — fast and safe.</p>
+    <a href="login.html" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-gray-100">🚀 Start for Free</a>
   </section>
 
-  <!-- Stats Section -->
-  <section class="max-w-7xl mx-auto px-4 py-20 text-center" data-aos="fade-up">
-    <h3 class="text-3xl font-semibold mb-8">🚀 Our Impact So Far</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h4 class="text-5xl font-bold text-blue-600 count" data-count="5000">0</h4>
-        <p class="mt-2 text-gray-600">Happy Creators</p>
-      </div>
-      <div>
-        <h4 class="text-5xl font-bold text-green-500 count" data-count="1500000">0</h4>
-        <p class="mt-2 text-gray-600">Followers Gained</p>
-      </div>
-      <div>
-        <h4 class="text-5xl font-bold text-yellow-500 count" data-count="25000">0</h4>
-        <p class="mt-2 text-gray-600">Positive Reviews</p>
+  <!-- Features Section -->
+  <!-- Features Section -->
+<section class="py-16 px-6">
+  <h3 class="text-2xl font-bold text-center mb-10">✨ What You Can Boost</h3>
+  <div class="space-y-6 max-w-md mx-auto">
+    
+    <!-- Row 1: Followers -->
+    <div class="grid grid-cols-1 gap-6">
+      <div class="bg-white card p-4 rounded-xl shadow text-center">
+        <img src="https://img.icons8.com/color/48/000000/add-user-group-man-man--v1.png" class="mx-auto mb-2"/>
+        <p class="font-semibold">Followers</p>
       </div>
     </div>
-  </section>
+
+    <!-- Row 2: Likes & Views -->
+    <div class="grid grid-cols-2 gap-6">
+      <div class="bg-white card p-4 rounded-xl shadow text-center">
+        <img src="https://img.icons8.com/color/48/000000/facebook-like--v1.png" class="mx-auto mb-2"/>
+        <p class="font-semibold">Likes</p>
+      </div>
+      <div class="bg-white card p-4 rounded-xl shadow text-center">
+        <img src="https://img.icons8.com/color/48/000000/visible--v1.png" class="mx-auto mb-2"/>
+        <p class="font-semibold">Views</p>
+      </div>
+    </div>
+
+    <!-- Row 3: Comments & Shares -->
+    <div class="grid grid-cols-2 gap-6">
+      <div class="bg-white card p-4 rounded-xl shadow text-center">
+        <img src="https://img.icons8.com/color/48/comments--v1.png" class="mx-auto mb-2"/>
+        <p class="font-semibold">Comments</p>
+      </div>
+      <div class="bg-white card p-4 rounded-xl shadow text-center">
+        <img src="https://img.icons8.com/color/48/share.png" class="mx-auto mb-2"/>
+        <p class="font-semibold">Shares</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
-  <section>
-    <main class="max-w-7xl mx-auto px-4 py-20 space-y-24">
-      <section data-aos="fade-up">
-        <h3 class="text-3xl font-semibold text-center mb-10">✨ What We Offer</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition">
-            <img src="https://img.icons8.com/fluency/48/graph.png" class="mx-auto mb-4" alt="Growth">
-            <h4 class="font-bold text-xl mb-2">Real Engagement</h4>
-            <p class="text-gray-600">No bots. Organic growth strategies tailored to your audience.</p>
+  <!-- Trust Section -->
+  <!-- Trust Section -->
+<!-- Trust Section -->
+<section class="bg-white py-16 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="inline-block bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-xs font-semibold mb-3">JOIN OUR COMMUNITY</span>
+      <h3 class="text-3xl font-bold mb-4">Our Users Love InstaBoost</h3>
+      <p class="text-gray-600 max-w-lg mx-auto">See how InstaBoost has helped users grow their Instagram presence and reach new heights!</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Testimonial 1 -->
+      <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+            <span class="text-indigo-600 font-bold">AM</span>
           </div>
-          <div class="bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition">
-            <img src="https://img.icons8.com/fluency/48/security-shield-green.png" class="mx-auto mb-4" alt="Secure">
-            <h4 class="font-bold text-xl mb-2">Safe & Secure</h4>
-            <p class="text-gray-600">We prioritize security with encryption and privacy-first policies.</p>
-          </div>
-          <div class="bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition">
-            <img src="https://img.icons8.com/fluency/48/thumb-up.png" class="mx-auto mb-4" alt="Free">
-            <h4 class="font-bold text-xl mb-2">Free to Start</h4>
-            <p class="text-gray-600">Get started free. Pay only when you see value.</p>
+          <div>
+            <p class="font-semibold">Anya M.</p>
+            <p class="text-sm text-gray-500">@travel.with.anya</p>
           </div>
         </div>
-      </section>
+        <p class="text-gray-700 mb-4">"Boosted my reels to 100k views in a week! The engagement actually led to brand partnerships. This isn't just numbers - it's real growth."</p>
+        <div class="flex space-x-1">
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+        </div>
+      </div>
 
-  <!-- Trust & Testimonials -->
-  <section class="bg-blue-50 py-20" data-aos="fade-up">
-    <h3 class="text-3xl font-semibold text-center mb-10">🌟 Trusted By Thousands Worldwide</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
-      <div class="bg-white p-6 rounded-2xl shadow-lg text-center floating">
-        <img class="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-blue-500" src="https://randomuser.me/api/portraits/women/75.jpg" alt="User">
-        <p class="italic mb-2">"Grew my page from 1k to 10k in just a month. Incredible!"</p>
-        <p class="text-yellow-400 text-sm">★★★★★</p>
-        <span class="text-sm text-gray-500">— @lifestylequeen</span>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow-lg text-center floating">
-        <img class="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-blue-500" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
-        <p class="italic mb-2">"Finally, a tool that actually delivers on its promises."</p>
-        <p class="text-yellow-400 text-sm">★★★★★</p>
-        <span class="text-sm text-gray-500">— @fitfocus</span>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow-lg text-center floating">
-        <img class="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-blue-500" src="https://randomuser.me/api/portraits/men/55.jpg" alt="User">
-        <p class="italic mb-2">"I recommend InstantBoost Pro to every small creator I meet."</p>
-        <p class="text-yellow-400 text-sm">★★★★★</p>
-        <span class="text-sm text-gray-500">— @techguru</span>
+      <!-- Testimonial 2 -->
+      <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+            <span class="text-indigo-600 font-bold">DK</span>
+          </div>
+          <div>
+            <p class="font-semibold">David K.</p>
+            <p class="text-sm text-gray-500">@fitnessking</p>
+          </div>
+        </div>
+        <p class="text-gray-700 mb-4">"Finally an app that delivers real comments from actual people. My engagement rate doubled and I'm getting more organic followers too!"</p>
+        <div class="flex space-x-1">
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+          <span class="text-yellow-400">★</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FAQ Section -->
-  <section class="max-w-7xl mx-auto px-4 py-20" data-aos="fade-up">
-    <h3 class="text-3xl font-semibold text-center mb-10">❓ Frequently Asked Questions</h3>
-    <div class="space-y-6">
-      <div class="bg-white p-6 rounded-xl shadow transition transform hover:scale-105">
-        <h4 class="font-bold mb-2">Is it really free to start?</h4>
-        <p class="text-gray-600">Yes! Try everything for free. Upgrade only if you're satisfied.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow transition transform hover:scale-105">
-        <h4 class="font-bold mb-2">Will my account be safe?</h4>
-        <p class="text-gray-600">Absolutely. We follow Instagram-compliant, safe practices.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow transition transform hover:scale-105">
-        <h4 class="font-bold mb-2">How soon will I see results?</h4>
-        <p class="text-gray-600">Many users see noticeable results within 24-48 hours.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow transition transform hover:scale-105">
-        <h4 class="font-bold mb-2">Can I cancel anytime?</h4>
-        <p class="text-gray-600">Yes, there’s no lock-in. Cancel or pause your plan anytime.</p>
-      </div>
+
+
+  <!-- Bottom CTA -->
+  <section class="fixed bottom-0 left-0 right-0 bg-white border-t px-6 py-4 shadow-inner flex justify-between items-center z-50">
+    <div class="text-sm">
+      <p class="font-semibold text-gray-800">Ready to grow fast?</p>
     </div>
+    <a href="#" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium shadow hover:bg-indigo-700">Start Free</a>
   </section>
-
-  <!-- Final CTA -->
-  <section class="text-center py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white" data-aos="zoom-in">
-    <h3 class="text-4xl font-bold mb-4">🚀 Ready to Take Off?</h3>
-    <p class="text-lg mb-6">Join thousands of creators growing faster every day. Zero risk. Real results.</p>
-    <a href="login.html" class="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold transition hover:bg-gray-100">Start Now – It's Free</a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white py-6 shadow-inner text-center text-gray-500 text-sm">
-    © 2025 InstantBoost Pro. All rights reserved.
-  </footer>
-
-  <!-- AOS Scroll Animations -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-
-    // Count-up Animation
-    const counters = document.querySelectorAll('.count');
-    counters.forEach(counter => {
-      let countTo = +counter.getAttribute('data-count');
-      let count = 0;
-      let step = Math.ceil(countTo / 100);
-      let interval = setInterval(() => {
-        count += step;
-        if (count >= countTo) {
-          counter.innerText = countTo.toLocaleString();
-          clearInterval(interval);
-        } else {
-          counter.innerText = count.toLocaleString();
-        }
-      }, 30);
-    });
-  </script>
 
 </body>
 </html>
