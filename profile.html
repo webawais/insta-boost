@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Profile - InstaBoost</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .card {
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white py-4 px-6 shadow flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-xl font-bold text-indigo-600">📲 InstaBoost</h1>
+    <button id="logoutBtn" class="text-red-500 font-semibold hover:underline">Logout</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-12 px-6 text-center rounded-b-3xl shadow-md">
+    <img src="https://img.icons8.com/3d-fluency/100/user-male-circle.png" alt="User" class="mx-auto rounded-full mb-4 shadow-lg" />
+    <h2 id="usernameDisplay" class="text-3xl font-bold mb-1">@username</h2>
+    <p class="text-sm opacity-90">Instagram Growth Dashboard</p>
+  </section>
+
+  <!-- Profile Stats -->
+<section class="py-10 px-6 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+
+  <a href="boost.html?type=followers" class="bg-white p-6 rounded-2xl shadow card text-center block">
+    <img src="https://img.icons8.com/color/48/add-user-group-man-man--v1.png" class="mx-auto mb-2"/>
+    <p class="text-sm text-gray-500">Followers</p>
+    <p class="text-xl font-bold text-indigo-600">+2,300</p>
+  </a>
+
+  <a href="boost.html?type=likes" class="bg-white p-6 rounded-2xl shadow card text-center block">
+    <img src="https://img.icons8.com/color/48/facebook-like--v1.png" class="mx-auto mb-2"/>
+    <p class="text-sm text-gray-500">Likes</p>
+    <p class="text-xl font-bold text-indigo-600">+5,100</p>
+  </a>
+
+  <a href="boost.html?type=views" class="bg-white p-6 rounded-2xl shadow card text-center block">
+    <img src="https://img.icons8.com/color/48/visible--v1.png" class="mx-auto mb-2"/>
+    <p class="text-sm text-gray-500">Views</p>
+    <p class="text-xl font-bold text-indigo-600">+34k</p>
+  </a>
+
+  <a href="boost.html?type=comments" class="bg-white p-6 rounded-2xl shadow card text-center block">
+    <img src="https://img.icons8.com/color/48/comments--v1.png" class="mx-auto mb-2"/>
+    <p class="text-sm text-gray-500">Comments</p>
+    <p class="text-xl font-bold text-indigo-600">+1,200</p>
+  </a>
+
+  <a href="boost.html?type=shares" class="bg-white p-6 rounded-2xl shadow card text-center block">
+    <img src="https://img.icons8.com/color/48/share.png" class="mx-auto mb-2"/>
+    <p class="text-sm text-gray-500">Shares</p>
+    <p class="text-xl font-bold text-indigo-600">+980</p>
+  </a>
+
+  <a href="boost.html?type=story" class="bg-white p-6 rounded-2xl shadow card text-center block">
+    <img src="https://img.icons8.com/color/48/instagram-new.png" class="mx-auto mb-2"/>
+    <p class="text-sm text-gray-500">Story Reach</p>
+    <p class="text-xl font-bold text-indigo-600">+8,700</p>
+  </a>
+
+</section>
+
+
+
+  <!-- User Options -->
+  <section class="px-6 max-w-3xl mx-auto pb-20">
+    <h3 class="text-xl font-semibold mb-4 mt-10">📋 Account Settings</h3>
+    <div class="space-y-4">
+      <div class="bg-white p-4 rounded-xl shadow flex items-center justify-between">
+        <p class="text-gray-700 font-medium">📈 Boost History</p>
+        <a href="#" class="text-indigo-600 hover:underline text-sm font-semibold">View</a>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow flex items-center justify-between">
+        <p class="text-gray-700 font-medium">🔒 Change Password</p>
+        <a href="#" class="text-indigo-600 hover:underline text-sm font-semibold">Update</a>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow flex items-center justify-between">
+        <p class="text-gray-700 font-medium">📬 Support & Help</p>
+        <a href="#" class="text-indigo-600 hover:underline text-sm font-semibold">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Bar CTA -->
+  <section class="fixed bottom-0 left-0 right-0 bg-white border-t px-6 py-4 shadow-inner flex justify-between items-center z-50">
+    <div class="text-sm">
+      <p class="font-semibold text-gray-800">Ready for another boost?</p>
+    </div>
+    <a href="#" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium shadow hover:bg-indigo-700">🚀 Boost Now</a>
+  </section>
+
+  <script>
+    const username = sessionStorage.getItem('instaUsername');
+    if (username) {
+      document.getElementById('usernameDisplay').textContent = "@" + username;
+    } else {
+      window.location.href = "login.html";
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      sessionStorage.removeItem("instaUsername");
+      window.location.href = "login.html";
+    });
+  </script>
+
+</body>
+</html>
