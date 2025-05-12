@@ -20,65 +20,62 @@
     .card:hover {
       transform: translateY(-3px) scale(1.02);
     }
+    .username-link:hover {
+      text-decoration: underline;
+      color: #cbd5ff;
+    }
   </style>
 </head>
 <body class="text-gray-800">
 
   <!-- Header -->
   <header class="bg-white py-4 px-6 shadow flex justify-between items-center sticky top-0 z-50">
-    <h1 class="text-xl font-bold text-indigo-600">📲 InstaBoost</h1>
+    <h1 class="text-xl font-bold text-indigo-600">📈 InstaBoost</h1>
     <button id="logoutBtn" class="text-red-500 font-semibold hover:underline">Logout</button>
   </header>
 
   <!-- Hero -->
   <section class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-12 px-6 text-center rounded-b-3xl shadow-md">
     <img src="https://img.icons8.com/3d-fluency/100/user-male-circle.png" alt="User" class="mx-auto rounded-full mb-4 shadow-lg" />
-    <h2 id="usernameDisplay" class="text-3xl font-bold mb-1">@username</h2>
+    <h2 id="usernameDisplay" class="text-3xl font-bold mb-1">
+      <!-- Username will be injected here -->
+    </h2>
     <p class="text-sm opacity-90">Instagram Growth Dashboard</p>
   </section>
 
   <!-- Profile Stats -->
-<section class="py-10 px-6 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-
-  <a href="boost.html?type=followers" class="bg-white p-6 rounded-2xl shadow card text-center block">
-    <img src="https://img.icons8.com/color/48/add-user-group-man-man--v1.png" class="mx-auto mb-2"/>
-    <p class="text-sm text-gray-500">Followers</p>
-    <p class="text-xl font-bold text-indigo-600">+2,300</p>
-  </a>
-
-  <a href="boost.html?type=likes" class="bg-white p-6 rounded-2xl shadow card text-center block">
-    <img src="https://img.icons8.com/color/48/facebook-like--v1.png" class="mx-auto mb-2"/>
-    <p class="text-sm text-gray-500">Likes</p>
-    <p class="text-xl font-bold text-indigo-600">+5,100</p>
-  </a>
-
-  <a href="boost.html?type=views" class="bg-white p-6 rounded-2xl shadow card text-center block">
-    <img src="https://img.icons8.com/color/48/visible--v1.png" class="mx-auto mb-2"/>
-    <p class="text-sm text-gray-500">Views</p>
-    <p class="text-xl font-bold text-indigo-600">+34k</p>
-  </a>
-
-  <a href="boost.html?type=comments" class="bg-white p-6 rounded-2xl shadow card text-center block">
-    <img src="https://img.icons8.com/color/48/comments--v1.png" class="mx-auto mb-2"/>
-    <p class="text-sm text-gray-500">Comments</p>
-    <p class="text-xl font-bold text-indigo-600">+1,200</p>
-  </a>
-
-  <a href="boost.html?type=shares" class="bg-white p-6 rounded-2xl shadow card text-center block">
-    <img src="https://img.icons8.com/color/48/share.png" class="mx-auto mb-2"/>
-    <p class="text-sm text-gray-500">Shares</p>
-    <p class="text-xl font-bold text-indigo-600">+980</p>
-  </a>
-
-  <a href="boost.html?type=story" class="bg-white p-6 rounded-2xl shadow card text-center block">
-    <img src="https://img.icons8.com/color/48/instagram-new.png" class="mx-auto mb-2"/>
-    <p class="text-sm text-gray-500">Story Reach</p>
-    <p class="text-xl font-bold text-indigo-600">+8,700</p>
-  </a>
-
-</section>
-
-
+  <section class="py-10 px-6 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+    <a href="boost.html?type=followers" class="bg-white p-6 rounded-2xl shadow card text-center block">
+      <img src="https://img.icons8.com/color/48/add-user-group-man-man--v1.png" class="mx-auto mb-2"/>
+      <p class="text-sm text-gray-500">Followers</p>
+      <p class="text-xl font-bold text-indigo-600">+2,300</p>
+    </a>
+    <a href="boost.html?type=likes" class="bg-white p-6 rounded-2xl shadow card text-center block">
+      <img src="https://img.icons8.com/color/48/facebook-like--v1.png" class="mx-auto mb-2"/>
+      <p class="text-sm text-gray-500">Likes</p>
+      <p class="text-xl font-bold text-indigo-600">+5,100</p>
+    </a>
+    <a href="boost.html?type=views" class="bg-white p-6 rounded-2xl shadow card text-center block">
+      <img src="https://img.icons8.com/color/48/visible--v1.png" class="mx-auto mb-2"/>
+      <p class="text-sm text-gray-500">Views</p>
+      <p class="text-xl font-bold text-indigo-600">+34k</p>
+    </a>
+    <a href="boost.html?type=comments" class="bg-white p-6 rounded-2xl shadow card text-center block">
+      <img src="https://img.icons8.com/color/48/comments--v1.png" class="mx-auto mb-2"/>
+      <p class="text-sm text-gray-500">Comments</p>
+      <p class="text-xl font-bold text-indigo-600">+1,200</p>
+    </a>
+    <a href="boost.html?type=shares" class="bg-white p-6 rounded-2xl shadow card text-center block">
+      <img src="https://img.icons8.com/color/48/share.png" class="mx-auto mb-2"/>
+      <p class="text-sm text-gray-500">Shares</p>
+      <p class="text-xl font-bold text-indigo-600">+980</p>
+    </a>
+    <a href="boost.html?type=story" class="bg-white p-6 rounded-2xl shadow card text-center block">
+      <img src="https://img.icons8.com/color/48/instagram-new.png" class="mx-auto mb-2"/>
+      <p class="text-sm text-gray-500">Story Reach</p>
+      <p class="text-xl font-bold text-indigo-600">+8,700</p>
+    </a>
+  </section>
 
   <!-- User Options -->
   <section class="px-6 max-w-3xl mx-auto pb-20">
@@ -109,8 +106,15 @@
 
   <script>
     const username = sessionStorage.getItem('instaUsername');
+    const usernameDisplay = document.getElementById('usernameDisplay');
+
     if (username) {
-      document.getElementById('usernameDisplay').textContent = "@" + username;
+      const cleanUsername = username.replace(/^@/, ''); // Remove @ if user types it
+      usernameDisplay.innerHTML = `
+        <a href="https://instagram.com/${cleanUsername}" target="_blank" rel="noopener noreferrer" class="username-link">
+          @${cleanUsername}
+        </a>
+      `;
     } else {
       window.location.href = "login.html";
     }
