@@ -2,122 +2,382 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boost Now - InstaBoost</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="theme-color" content="#6366f1"/>
+  <title>Boost Now - InstaBoost Pro</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior-y: contain;
     }
+    
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
     }
-    .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      backdrop-filter: blur(10px);
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    }
+    
+    .boost-btn {
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      background-size: 200% auto;
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    }
+    
+    .boost-btn:hover {
+      background-position: right center;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    }
+    
+    .boost-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .input-field {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255, 255, 255, 0.8);
+    }
+    
+    .input-field:focus {
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+    
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
       background: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: ripple 600ms linear;
+      pointer-events: none;
     }
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
     }
-    .glass-input {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(5px);
+    
+    /* iOS input zoom prevention */
+    @media screen and (max-width: 767px) {
+      input, textarea {
+        font-size: 16px !important;
+      }
     }
   </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-800 pb-24">
 
-  <!-- Header -->
-  <header class="bg-white py-4 px-6 shadow-md flex justify-between items-center sticky top-0 z-50 rounded-b-2xl">
-    <h1 class="text-2xl font-extrabold text-indigo-600 cursor-pointer tracking-wide" onclick="window.location.href='profile.html'">📲 InstaBoost</h1>
-    <button id="logoutBtn" class="text-red-500 font-semibold hover:underline">Logout</button>
+  <!-- App Header -->
+  <header class="glass-card py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+    <button onclick="window.history.back()" class="text-gray-600 hover:text-indigo-600 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <h1 class="text-xl font-bold text-indigo-600">InstaBoost Pro</h1>
+    <button id="logoutBtn" class="text-gray-500 hover:text-red-500 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+      </svg>
+    </button>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 text-white py-12 px-6 text-center rounded-3xl shadow-lg mt-6 mx-4">
-    <img id="boostIcon" src="" alt="Boost Icon" class="mx-auto rounded-full mb-4 shadow-2xl w-28 h-28 border-4 border-white"/>
-    <h2 id="boostTitle" class="text-4xl font-bold mb-2 drop-shadow-lg">Boost Followers</h2>
-    <p class="text-sm opacity-90">Get real engagement in seconds 🚀</p>
+  <!-- Hero Section -->
+  <section id="heroSection" class="hero-gradient text-white py-12 px-6 text-center mx-4 rounded-2xl shadow-xl mt-4 overflow-hidden relative">
+    <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIvPjwvc3ZnPg==')"></div>
+    <div class="relative z-10">
+      <div class="floating mx-auto mb-6">
+        <img id="boostIcon" src="" alt="Boost Icon" class="w-24 h-24 rounded-2xl bg-white/20 p-3 border-2 border-white/30 shadow-lg"/>
+      </div>
+      <h2 id="boostTitle" class="text-3xl font-bold mb-2 drop-shadow-md animate__animated animate__fadeIn"></h2>
+      <p id="boostSubtitle" class="text-sm opacity-90 animate__animated animate__fadeIn animate__delay-1s"></p>
+    </div>
   </section>
 
   <!-- Boost Form -->
-  <section class="py-10 px-6 max-w-md mx-auto">
-    <div class="bg-white/70 p-8 rounded-3xl shadow-xl card space-y-6 border border-gray-200">
-      <label class="block text-sm font-semibold text-gray-700 text-left">Instagram Username</label>
-      <input type="text" id="usernameInput" placeholder="@username" class="glass-input w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg">
+  <section class="px-6 max-w-md mx-auto mt-8 animate__animated animate__fadeIn animate__delay-1s">
+    <div class="glass-card p-6 rounded-2xl shadow-sm space-y-6">
+      <!-- Username Field -->
+      <div class="space-y-2">
+        <label for="usernameInput" class="block text-sm font-medium text-gray-700 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+          </svg>
+          Instagram Username
+        </label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <span class="text-gray-400">@</span>
+          </div>
+          <input type="text" id="usernameInput" placeholder="username" 
+                 class="input-field pl-8 w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+      </div>
 
-      <label class="block text-sm font-semibold text-gray-700 text-left">Quantity</label>
-      <input type="number" id="quantityInput" placeholder="Enter quantity" class="glass-input w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg">
+      <!-- Quantity Field -->
+      <div class="space-y-2">
+        <label for="quantityInput" class="block text-sm font-medium text-gray-700 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+          </svg>
+          Quantity
+        </label>
+        <div class="relative">
+          <input type="number" id="quantityInput" placeholder="100 - 10,000" 
+                 class="input-field w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <span class="text-gray-400 text-sm" id="quantityType"></span>
+          </div>
+        </div>
+        <div class="flex justify-between px-1">
+          <button class="quantity-btn text-xs text-indigo-600 font-medium" data-value="100">100</button>
+          <button class="quantity-btn text-xs text-indigo-600 font-medium" data-value="500">500</button>
+          <button class="quantity-btn text-xs text-indigo-600 font-medium" data-value="1000">1,000</button>
+          <button class="quantity-btn text-xs text-indigo-600 font-medium" data-value="5000">5,000</button>
+          <button class="quantity-btn text-xs text-indigo-600 font-medium" data-value="10000">10,000</button>
+        </div>
+      </div>
 
-      <button id="boostBtn" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-4 rounded-2xl font-semibold shadow-lg hover:from-indigo-600 hover:to-purple-700 transition transform hover:scale-105 duration-200 text-lg">
-        🚀 Boost Now
+      <!-- Boost Button -->
+      <button id="boostBtn" class="ripple boost-btn w-full text-white py-4 rounded-xl font-semibold flex items-center justify-center relative overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
+        </svg>
+        <span id="boostBtnText">Start Boosting</span>
       </button>
     </div>
   </section>
 
+  <!-- Features Section -->
+  <section class="px-6 max-w-md mx-auto mt-8 animate__animated animate__fadeIn animate__delay-1s">
+    
+    
+    <div class="glass-card p-6 rounded-2xl shadow-sm space-y-4">
+      <div class="flex items-start">
+        <div class="bg-indigo-100 text-indigo-600 rounded-lg p-2 mr-3 flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div>
+          <p class="font-medium text-gray-800">Real Organic Growth</p>
+          <p class="text-sm text-gray-600">No bots or fake accounts - we connect you with real users in your niche.</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start">
+        <div class="bg-indigo-100 text-indigo-600 rounded-lg p-2 mr-3 flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div>
+          <p class="font-medium text-gray-800">100% Safe & Secure</p>
+          <p class="text-sm text-gray-600">We use Instagram's official API and never store your password.</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start">
+        <div class="bg-indigo-100 text-indigo-600 rounded-lg p-2 mr-3 flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div>
+          <p class="font-medium text-gray-800">Precise Targeting</p>
+          <p class="text-sm text-gray-600">Reach users based on hashtags, locations, and competitor audiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script>
-    // Logout Button
-    document.getElementById("logoutBtn").addEventListener("click", function() {
-      sessionStorage.removeItem("instaUsername");
-      window.location.href = "login.html";
-    });
-
-    // Get URL Param
-    const urlParams = new URLSearchParams(window.location.search);
-    const boostType = urlParams.get('type') || 'followers';
-
-    // Icons map
+    // Type mapping with enhanced data
     const typeMap = {
       followers: {
-        title: "Boost Followers",
-        icon: "https://img.icons8.com/color/96/add-user-group-man-man--v1.png"
+        title: "Grow Your Followers",
+        subtitle: "Get real, engaged followers in your niche",
+        icon: "https://img.icons8.com/color/96/000000/add-user-group-man-man--v1.png",
+        quantityType: "followers",
+        processingText: "Adding followers"
       },
       likes: {
-        title: "Boost Likes",
-        icon: "https://img.icons8.com/color/96/facebook-like--v1.png"
+        title: "Increase Post Likes",
+        subtitle: "Boost engagement on your content",
+        icon: "https://img.icons8.com/color/96/000000/facebook-like--v1.png",
+        quantityType: "likes",
+        processingText: "Generating likes"
       },
       views: {
-        title: "Boost Views",
-        icon: "https://img.icons8.com/color/96/visible--v1.png"
+        title: "Boost Video Views",
+        subtitle: "Get more eyes on your videos",
+        icon: "https://img.icons8.com/color/96/000000/visible--v1.png",
+        quantityType: "views",
+        processingText: "Increasing views"
       },
       comments: {
-        title: "Boost Comments",
-        icon: "https://img.icons8.com/color/96/comments--v1.png"
+        title: "Generate Comments",
+        subtitle: "Spark conversations on your posts",
+        icon: "https://img.icons8.com/color/96/000000/comments--v1.png",
+        quantityType: "comments",
+        processingText: "Creating comments"
       },
       shares: {
-        title: "Boost Shares",
-        icon: "https://img.icons8.com/color/96/share.png"
+        title: "Increase Shares",
+        subtitle: "Expand your reach organically",
+        icon: "https://img.icons8.com/color/96/000000/share.png",
+        quantityType: "shares",
+        processingText: "Boosting shares"
       },
       story: {
         title: "Boost Story Reach",
-        icon: "https://img.icons8.com/color/96/instagram-new.png"
+        subtitle: "Get more story views & replies",
+        icon: "https://img.icons8.com/color/96/000000/instagram-new.png",
+        quantityType: "views",
+        processingText: "Expanding story reach"
       }
     };
 
-    // Update Hero section
-    const selected = typeMap[boostType] || typeMap['followers'];
-    document.getElementById('boostTitle').textContent = selected.title;
-    document.getElementById('boostIcon').src = selected.icon;
-
-    // Boost Button Click
-    document.getElementById('boostBtn').addEventListener('click', function() {
+    // Initialize page based on URL params
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const boostType = urlParams.get('type') || 'followers';
+      const selected = typeMap[boostType] || typeMap['followers'];
+      
+      // Update hero section
+      document.getElementById('boostTitle').textContent = selected.title;
+      document.getElementById('boostSubtitle').textContent = selected.subtitle;
+      document.getElementById('boostIcon').src = selected.icon;
+      document.getElementById('quantityType').textContent = selected.quantityType;
+      
+      // Update button text
+      document.getElementById('boostBtnText').textContent = `Boost ${selected.quantityType}`;
+      
+      // Quick quantity buttons
+      document.querySelectorAll('.quantity-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.getElementById('quantityInput').value = this.dataset.value;
+        });
+      });
+      
+      // Logout button
+      document.getElementById('logoutBtn').addEventListener('click', function() {
+        sessionStorage.removeItem('instaUsername');
+        window.location.href = 'login.html';
+      });
+      
+      // Boost button with ripple effect
+      document.getElementById('boostBtn').addEventListener('click', function(e) {
+        // Create ripple element
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple-effect');
+        
+        // Position the ripple
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+        ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+        
+        // Add ripple to button
+        this.appendChild(ripple);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+        
+        // Handle form submission
+        handleBoost(boostType, selected.processingText);
+      });
+    });
+    
+    // Handle boost submission
+    function handleBoost(boostType, processingText) {
       const username = document.getElementById('usernameInput').value.trim();
       const quantity = document.getElementById('quantityInput').value.trim();
-
-      if (!username || !quantity) {
-        alert("Please enter both username and quantity.");
+      
+      if (!username) {
+        showError('Please enter your Instagram username');
         return;
       }
-
-      // Redirect to processing.html with params
-      const redirectURL = `processing.html?username=${encodeURIComponent(username)}&quantity=${quantity}&type=${boostType}`;
-      window.location.href = redirectURL;
-    });
+      
+      if (!quantity || isNaN(quantity) || quantity < 100 || quantity > 10000) {
+        showError('Please enter a quantity between 100 and 10,000');
+        return;
+      }
+      
+      // Store data in sessionStorage for processing page
+      sessionStorage.setItem('processingData', JSON.stringify({
+        username: username,
+        quantity: quantity,
+        type: boostType,
+        processingText: processingText
+      }));
+      
+      // Redirect to processing page
+      window.location.href = `processing.html?type=${boostType}`;
+    }
+    
+    // Show error message
+    function showError(message) {
+      const errorEl = document.createElement('div');
+      errorEl.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded z-50 animate__animated animate__fadeInDown';
+      errorEl.textContent = message;
+      document.body.appendChild(errorEl);
+      
+      setTimeout(() => {
+        errorEl.classList.add('animate__fadeOutUp');
+        setTimeout(() => errorEl.remove(), 500);
+      }, 3000);
+    }
   </script>
-
 </body>
 </html>
