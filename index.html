@@ -1,151 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boost Your Instagram | InstaBoost App</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="theme-color" content="#6366f1"/>
+  <title>Boost Your Instagram | InstaBoost</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
+      background: #f8fafc;
+      -webkit-tap-highlight-color: transparent;
     }
+    
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
     }
-    .gradient-bg {
-      background: linear-gradient(to right, #6366f1, #3b82f6);
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      clip-path: ellipse(120% 100% at 50% 0%);
     }
+    
+    .card {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    
     .card:hover {
-      transform: scale(1.03);
-      transition: 0.3s;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .action-btn {
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+    }
+    
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px rgba(99, 102, 241, 0.3);
+    }
+    
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .testimonial-card {
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.9), rgba(249,250,251,0.9));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .animate-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-800 pb-24">
 
-  <!-- Header -->
-  <header class="bg-white py-4 px-6 shadow flex justify-between items-center sticky top-0 z-50">
-    <h1 class="text-xl font-bold text-indigo-600">📈 InstaBoost</h1>
-    <a href="login.html" class="text-indigo-600 font-semibold">Login</a>
+  <!-- App Header -->
+  <header class="bg-white py-4 px-6 shadow-sm flex justify-between items-center sticky top-0 z-50">
+    <div class="flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
+      </svg>
+      <h1 class="text-xl font-bold text-indigo-600">InstaBoost</h1>
+    </div>
+    <a href="login.html" class="text-indigo-600 font-medium hover:text-indigo-700 transition-colors">Login</a>
   </header>
 
   <!-- Hero Section -->
-  <section class="gradient-bg text-white py-20 px-6 text-center rounded-b-3xl shadow-lg">
-    <h2 class="text-4xl font-bold mb-4 leading-snug">Boost Your Instagram Profile</h2>
-    <p class="mb-6 text-lg">Increase real followers, likes, views, shares, and comments — fast and safe.</p>
-    <a href="login.html" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-gray-100">🚀 Start for Free</a>
+  <section class="hero-gradient text-white py-20 px-6 text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIvPjwvc3ZnPg==')"></div>
+    <div class="relative z-10 max-w-2xl mx-auto">
+      <div class="floating inline-block mb-6">
+        <div class="bg-white/20 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+          <img src="https://img.icons8.com/color/96/000000/instagram-new.png" class="w-16 h-16"/>
+        </div>
+      </div>
+      <h2 class="text-4xl font-bold mb-4 leading-tight animate__animated animate__fadeIn">Grow Your Instagram <br>Organically</h2>
+      <p class="text-lg opacity-90 mb-8 max-w-lg mx-auto animate__animated animate__fadeIn animate__delay-1s">Get real followers, likes, and engagement from active Instagram users</p>
+      <a href="login.html" class="action-btn inline-block text-white px-8 py-3 rounded-full font-semibold text-lg animate__animated animate__fadeIn animate__delay-1s">
+        🚀 Start Growing Free
+      </a>
+    </div>
   </section>
 
   <!-- Features Section -->
-  <!-- Features Section -->
-<section class="py-16 px-6">
-  <h3 class="text-2xl font-bold text-center mb-10">✨ What You Can Boost</h3>
-  <div class="space-y-6 max-w-md mx-auto">
+  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-12 animate-in">Boost What Matters</h3>
     
-    <!-- Row 1: Followers -->
-    <div class="grid grid-cols-1 gap-6">
-      <div class="bg-white card p-4 rounded-xl shadow text-center">
-        <img src="https://img.icons8.com/color/48/000000/add-user-group-man-man--v1.png" class="mx-auto mb-2"/>
-        <p class="font-semibold">Followers</p>
-      </div>
-    </div>
-
-    <!-- Row 2: Likes & Views -->
-    <div class="grid grid-cols-2 gap-6">
-      <div class="bg-white card p-4 rounded-xl shadow text-center">
-        <img src="https://img.icons8.com/color/48/000000/facebook-like--v1.png" class="mx-auto mb-2"/>
-        <p class="font-semibold">Likes</p>
-      </div>
-      <div class="bg-white card p-4 rounded-xl shadow text-center">
-        <img src="https://img.icons8.com/color/48/000000/visible--v1.png" class="mx-auto mb-2"/>
-        <p class="font-semibold">Views</p>
-      </div>
-    </div>
-
-    <!-- Row 3: Comments & Shares -->
-    <div class="grid grid-cols-2 gap-6">
-      <div class="bg-white card p-4 rounded-xl shadow text-center">
-        <img src="https://img.icons8.com/color/48/comments--v1.png" class="mx-auto mb-2"/>
-        <p class="font-semibold">Comments</p>
-      </div>
-      <div class="bg-white card p-4 rounded-xl shadow text-center">
-        <img src="https://img.icons8.com/color/48/share.png" class="mx-auto mb-2"/>
-        <p class="font-semibold">Shares</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-  <!-- Trust Section -->
-  <!-- Trust Section -->
-<!-- Trust Section -->
-<section class="bg-white py-16 px-6">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-12">
-      <span class="inline-block bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-xs font-semibold mb-3">JOIN OUR COMMUNITY</span>
-      <h3 class="text-3xl font-bold mb-4">Our Users Love InstaBoost</h3>
-      <p class="text-gray-600 max-w-lg mx-auto">See how InstaBoost has helped users grow their Instagram presence and reach new heights!</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Testimonial 1 -->
-      <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-            <span class="text-indigo-600 font-bold">AM</span>
-          </div>
-          <div>
-            <p class="font-semibold">Anya M.</p>
-            <p class="text-sm text-gray-500">@travel.with.anya</p>
-          </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Followers -->
+      <a href="login.html" class="card bg-white p-6 rounded-xl text-center block">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-indigo-50 flex items-center justify-center">
+          <img src="https://img.icons8.com/color/96/000000/add-user-group-man-man--v1.png" class="w-10 h-10"/>
         </div>
-        <p class="text-gray-700 mb-4">"Boosted my reels to 100k views in a week! The engagement actually led to brand partnerships. This isn't just numbers - it's real growth."</p>
-        <div class="flex space-x-1">
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
+        <h4 class="font-bold text-lg text-gray-800 mb-2">Followers</h4>
+        <p class="text-gray-600 text-sm">Grow with real, engaged followers who interact with your content</p>
+      </a>
+      
+      <!-- Likes -->
+      <a href="login.html" class="card bg-white p-6 rounded-xl text-center block">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-indigo-50 flex items-center justify-center">
+          <img src="https://img.icons8.com/color/96/000000/facebook-like--v1.png" class="w-10 h-10"/>
         </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-            <span class="text-indigo-600 font-bold">DK</span>
-          </div>
-          <div>
-            <p class="font-semibold">David K.</p>
-            <p class="text-sm text-gray-500">@fitnessking</p>
-          </div>
+        <h4 class="font-bold text-lg text-gray-800 mb-2">Likes</h4>
+        <p class="text-gray-600 text-sm">Increase engagement and make your posts more visible</p>
+      </a>
+      
+      <!-- Views -->
+      <a href="login.html" class="card bg-white p-6 rounded-xl text-center block">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-indigo-50 flex items-center justify-center">
+          <img src="https://img.icons8.com/color/96/000000/visible--v1.png" class="w-10 h-10"/>
         </div>
-        <p class="text-gray-700 mb-4">"Finally an app that delivers real comments from actual people. My engagement rate doubled and I'm getting more organic followers too!"</p>
-        <div class="flex space-x-1">
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
-          <span class="text-yellow-400">★</span>
+        <h4 class="font-bold text-lg text-gray-800 mb-2">Views</h4>
+        <p class="text-gray-600 text-sm">Get more eyes on your Reels and IGTV videos</p>
+      </a>
+      
+      <!-- Comments -->
+      <a href="login.html" class="card bg-white p-6 rounded-xl text-center block">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-indigo-50 flex items-center justify-center">
+          <img src="https://img.icons8.com/color/96/comments--v1.png" class="w-10 h-10"/>
         </div>
-      </div>
+        <h4 class="font-bold text-lg text-gray-800 mb-2">Comments</h4>
+        <p class="text-gray-600 text-sm">Spark conversations and increase post visibility</p>
+      </a>
+      
+      <!-- Shares -->
+      <a href="login.html" class="card bg-white p-6 rounded-xl text-center block">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-indigo-50 flex items-center justify-center">
+          <img src="https://img.icons8.com/color/96/share.png" class="w-10 h-10"/>
+        </div>
+        <h4 class="font-bold text-lg text-gray-800 mb-2">Shares</h4>
+        <p class="text-gray-600 text-sm">Expand your reach through social sharing</p>
+      </a>
+      
+     
     </div>
-  </div>
-</section>
-
-
-
-  <!-- Bottom CTA -->
-  <section class="fixed bottom-0 left-0 right-0 bg-white border-t px-6 py-4 shadow-inner flex justify-between items-center z-50">
-    <div class="text-sm">
-      <p class="font-semibold text-gray-800">Ready to grow fast?</p>
-    </div>
-    <a href="#" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium shadow hover:bg-indigo-700">Start Free</a>
   </section>
 
+  <!-- How It Works -->
+  <section class="py-16 px-6 bg-gradient-to-br from-indigo-50 to-white">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-12 animate-in">How It Works</h3>
+      
+      <div class="space-y-8">
+        <div class="flex flex-col md:flex-row items-center gap-6 animate-in" style="animation-delay: 0.2s">
+          <div class="bg-indigo-100 text-indigo-600 rounded-xl p-4 flex-shrink-0 w-16 h-16 flex items-center justify-center">
+            <span class="text-2xl font-bold">1</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Connect Your Account</h4>
+            <p class="text-gray-600">Securely log in with your Instagram - we never store your password</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center gap-6 animate-in" style="animation-delay: 0.4s">
+          <div class="bg-indigo-100 text-indigo-600 rounded-xl p-4 flex-shrink-0 w-16 h-16 flex items-center justify-center">
+            <span class="text-2xl font-bold">2</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Choose What to Boost</h4>
+            <p class="text-gray-600">Select followers, likes, comments or views and set your targets</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center gap-6 animate-in" style="animation-delay: 0.6s">
+          <div class="bg-indigo-100 text-indigo-600 rounded-xl p-4 flex-shrink-0 w-16 h-16 flex items-center justify-center">
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Watch Your Growth</h4>
+            <p class="text-gray-600">See real engagement from authentic users in your niche</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-xs font-semibold mb-3 animate-in">TRUSTED BY THOUSANDS</span>
+        <h3 class="text-3xl font-bold mb-4 animate-in">What Our Users Say</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card p-6 rounded-2xl border border-gray-100 animate-in" style="animation-delay: 0.2s">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+              <span class="text-indigo-600 font-bold">AM</span>
+            </div>
+            <div>
+              <p class="font-semibold">Anya M.</p>
+              <p class="text-sm text-gray-500">Travel Blogger</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4">"Gained 2,300 real followers in my first week! The engagement actually led to brand partnerships. This isn't just numbers - it's real growth."</p>
+          <div class="flex space-x-1 text-yellow-400">
+            ★★★★★
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card p-6 rounded-2xl border border-gray-100 animate-in" style="animation-delay: 0.4s">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+              <span class="text-indigo-600 font-bold">DK</span>
+            </div>
+            <div>
+              <p class="font-semibold">David K.</p>
+              <p class="text-sm text-gray-500">Fitness Coach</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4">"Finally an app that delivers real comments from actual people. My engagement rate doubled and I'm getting more organic followers too!"</p>
+          <div class="flex space-x-1 text-yellow-400">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 px-6 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white text-center">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="text-3xl font-bold mb-4 animate-in">Ready to Grow Your Instagram?</h3>
+      <p class="text-lg opacity-90 mb-8 animate-in" style="animation-delay: 0.2s">Join thousands of creators and businesses growing with InstaBoost</p>
+      <a href="login.html" class="action-btn inline-block bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold text-lg animate-in" style="animation-delay: 0.4s">
+        🚀 Start Free Today
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 bg-gray-50 text-center">
+    <p class="text-gray-600 text-sm">© 2023 InstaBoost. All rights reserved.</p>
+    <div class="flex justify-center space-x-6 mt-4">
+      <a href="#" class="text-gray-500 hover:text-indigo-600 transition-colors">Terms</a>
+      <a href="#" class="text-gray-500 hover:text-indigo-600 transition-colors">Privacy</a>
+      <a href="#" class="text-gray-500 hover:text-indigo-600 transition-colors">Help</a>
+    </div>
+  </footer>
+
+  <script>
+    // Animate elements on scroll
+    const animateElements = document.querySelectorAll('.animate-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animateElements.forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
